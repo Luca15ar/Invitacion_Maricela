@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <p class="frase">"A todos los seres más queridos que forman parte de mi vida, quiero que celebren conmigo mis 15 años de vida, porque su precencia siempre será mi mejor regalo."
+        <p class="frase">"A todos los seres más queridos que forman parte de mi vida, quiero que celebren conmigo mis 15 años, porque su precencia siempre será mi mejor regalo."
         </p>
 
         <img class="queen-crown" src="./assets/img/queen-crown.png">
@@ -145,51 +145,53 @@
 
         document.addEventListener('DOMContentLoaded', () => { 
 
-        const DATE_TARGET = new Date('06/06/2026 09:00 PM');
-        
-        // Seleccionamos la sección completa del contador
-        const CONTENEDOR_PRINCIPAL = document.querySelector('#contador-regresivo');
+            const DATE_TARGET = new Date('06/06/2026 09:00 PM');
+            
+            // Seleccionamos la sección completa del contador
+            const CONTENEDOR_PRINCIPAL = document.querySelector('#contador-regresivo');
 
-        const SPAN_DAYS = document.querySelector('span#days');
-        const SPAN_HOURS = document.querySelector('span#hours');
-        const SPAN_MINUTES = document.querySelector('span#minutes');
-        const SPAN_SECONDS = document.querySelector('span#seconds');
-        
-        const MILLISECONDS_OF_A_SECOND = 1000;
-        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
-        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
-        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24;
+            const SPAN_DAYS = document.querySelector('span#days');
+            const SPAN_HOURS = document.querySelector('span#hours');
+            const SPAN_MINUTES = document.querySelector('span#minutes');
+            const SPAN_SECONDS = document.querySelector('span#seconds');
+            
+            const MILLISECONDS_OF_A_SECOND = 1000;
+            const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+            const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+            const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24;
 
-        let intervalId;
+            let intervalId;
 
-        function updateCountdown() {
-            const NOW = new Date();
-            const DURATION = DATE_TARGET - NOW;
+            function updateCountdown() 
+            {
+                const NOW = new Date();
+                const DURATION = DATE_TARGET - NOW;
 
-            if (DURATION <= 0) {
-                clearInterval(intervalId);
-                
-                // Reemplazamos todo el contenido de la sección por el nuevo mensaje
-                CONTENEDOR_PRINCIPAL.innerHTML = `
-                    <h2 style="margin: 20px 0; color: #8B0000; font-size: 3rem;">
-                        ¡Gracias por venir!
-                    </h2>`;
-                return; 
+                if (DURATION <= 0) 
+                {
+                    clearInterval(intervalId);
+                    
+                    // Reemplazamos todo el contenido de la sección por el nuevo mensaje
+                    CONTENEDOR_PRINCIPAL.innerHTML = `
+                        <h2 style="margin: 20px 0; color: #8B0000; font-size: 3rem;">
+                            ¡Gracias por venir!
+                        </h2>`;
+                    return; 
+                }
+
+                const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+                const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+                const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+                const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+
+                if(SPAN_DAYS) SPAN_DAYS.textContent = REMAINING_DAYS;
+                if(SPAN_HOURS) SPAN_HOURS.textContent = REMAINING_HOURS;
+                if(SPAN_MINUTES) SPAN_MINUTES.textContent = REMAINING_MINUTES;
+                if(SPAN_SECONDS) SPAN_SECONDS.textContent = REMAINING_SECONDS;
             }
 
-            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
-            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
-            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
-            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
-
-            if(SPAN_DAYS) SPAN_DAYS.textContent = REMAINING_DAYS;
-            if(SPAN_HOURS) SPAN_HOURS.textContent = REMAINING_HOURS;
-            if(SPAN_MINUTES) SPAN_MINUTES.textContent = REMAINING_MINUTES;
-            if(SPAN_SECONDS) SPAN_SECONDS.textContent = REMAINING_SECONDS;
-        }
-
-        updateCountdown();
-        intervalId = setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+            updateCountdown();
+            intervalId = setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
         });
     </script>
 </body>
