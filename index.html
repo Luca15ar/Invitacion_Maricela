@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <!-- Titulo -->
+    <title>XV de Maricela</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="./assets/img/crown_icon.ico" type="image/x-icon"> -->
+</head>
+<body>
+    <header>
+        <p class="frase">"A todos los seres más queridos que forman parte de mi vida, quiero que celebren conmigo mis 15 años de vida, porque su precencia siempre será mi mejor regalo."
+        </p>
+
+        <img class="queen-crown" src="./assets/img/queen-crown.png">
+        <h1>MIS XV AÑOS</h1>
+
+        <h2>Maricela Marín Areco</h2>
+
+        <div class="music-player-container">
+            <audio id="musica" src="./assets/Taylor Swift - Lover (Official Music Video).mp3" loop></audio>
+
+            <div class="music-player-btn-container">
+                <img class="retroceder-btn" src="./assets/img/rewind_button.png" alt="retroceder-btn" onclick="retroceder()">
+                <img id="reproducir-btn" src="./assets/img/play_button.png" alt="reproducir-btn" onclick="toggleMusica()">
+                <img class="adelantar-btn" src="./assets/img/forward_button.png" alt="adelantar-btn" onclick="adelantar()">
+            </div>
+        </div>
+
+        <div class="calendario-container">
+            <p class="mes">JUNIO</p>
+            
+            <div class="fecha-container">
+                <p class="dia">SÁBADO</p>
+                <p class="fecha">06</p>
+                <p class="año">2026</p>
+            </div>
+        </div>
+
+        <h4 style="margin-top: 21.28px;">21:00 - 05:00</h4>
+    </header>
+
+    <main>
+        <!-- Contador regresivo -->
+        <section id="contador-regresivo">
+            <h3>FALTAN</h3>
+            <i class="fi fi-ts-marker"></i>
+            <table>
+                <tr>
+                <td><span id="days"></span></td>
+                <td><span id="hours"></span></td>
+                <td><span id="minutes"></span></td>
+                <td><span id="seconds"></span></td>
+                </tr>
+                <tr>
+                <th id="dias">Días</th>
+                <th id="horas">Horas</th>
+                <th id="minutos">Min</th>
+                <th id="segundos">Seg</th>
+                </tr>
+            </table>
+        </section>
+
+        <section id="detalles">
+            <div class="ubicacion-container">
+                <img class="iconos" src="./assets/img/location_icon.png" alt="location-img">
+                <h3>LUGAR</h3>
+                <p class="detalle-lugar">25 de Mayo 56, Avellaneda</p>
+                <a href="https://maps.app.goo.gl/N6fzt4WYBTRgwbLM6" target="_blank">
+                    <button id="ubicacion">Ver ubicación</button>
+                </a>
+            </div>
+
+            <div class="vestimenta-container">
+                <h3>CÓDIGO DE VESTIMENTA</h3>
+                <p>Elegante Sport</p>
+                <div class="vestimenta-img">
+                    <img class="vestimenta" src="./assets/img/suit_icon.png" alt="suit-img">
+                    <img class="vestimenta" src="./assets/img/dress_icon.png" alt="dress-img">
+                </div>
+                <p style="color: #8B0000; font-weight: bolder;">*Evitar colores rojos o bordos.</p>
+            </div>
+
+            <div class="confirmacion-container">
+                <img class="iconos" src="./assets/img/whatsapp_icon.png" alt="whatsapp-icon">
+                <h3>CONFIRMAR ASISTENCIA</h3>
+                <button id="confirmacion" onclick='window.location.href="https://wa.me/5491125084974"' target="_blank">Confirmar aquí</button>
+            </div>
+
+            <div class="regalos-container">
+                <img class="iconos" src="./assets/img/gift_icon.png" alt="gift-img">
+                <h3>SUGERENCIA DE REGALOS</h3>
+                <p style="margin-bottom: 2.5%;">Tu compañia en este día tan especial es el mejor regalo. Pero si deseas darme un obsequio, aquí podes hacerlo:</p>
+                <h3 style="margin-top: 0; color:#d13939"; font-weight: bolder;">TRANSFERENCIA</h3>
+                <h3>maarinn</h3>
+            </div>
+
+            <div class="agradecimientos">
+                <h5>ESPERAMOS CONTAR CON TU PRESENCIA</h5>
+
+                <h2 style="color: #8B0000;">¡Muchas gracias!</h2>
+            </div>
+        </section>
+    </main>
+        
+    <footer>
+        <p style="font-size: smaller;">Made by Luca Areco © 2026</p>
+    </footer>
+
+    <script>
+        const musica = document.getElementById('musica');
+        const reproducir = document.getElementById('reproducir-btn');
+
+        function toggleMusica() 
+        {
+            if (musica.paused) 
+            {
+                musica.play();
+                reproducir.src = "./assets/img/pause_button.png"
+            } 
+            else 
+            {
+                musica.pause();
+                reproducir.src = "./assets/img/play_button.png"
+            }
+        }
+
+        function adelantar() 
+        {
+            musica.currentTime += 10; // Avanza 10 segundos
+        }
+
+        function retroceder() 
+        {
+            musica.currentTime -= 10; // Retrocede 10 segundos
+            if (musica.currentTime < 0) musica.currentTime = 0; // Evita ir antes del inicio
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { 
+
+        const DATE_TARGET = new Date('06/06/2026 09:00 PM');
+        
+        // Seleccionamos la sección completa del contador
+        const CONTENEDOR_PRINCIPAL = document.querySelector('#contador-regresivo');
+
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+        
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24;
+
+        let intervalId;
+
+        function updateCountdown() {
+            const NOW = new Date();
+            const DURATION = DATE_TARGET - NOW;
+
+            if (DURATION <= 0) {
+                clearInterval(intervalId);
+                
+                // Reemplazamos todo el contenido de la sección por el nuevo mensaje
+                CONTENEDOR_PRINCIPAL.innerHTML = `
+                    <h2 style="margin: 20px 0; color: #8B0000; font-size: 3rem;">
+                        ¡Gracias por venir!
+                    </h2>`;
+                return; 
+            }
+
+            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+
+            if(SPAN_DAYS) SPAN_DAYS.textContent = REMAINING_DAYS;
+            if(SPAN_HOURS) SPAN_HOURS.textContent = REMAINING_HOURS;
+            if(SPAN_MINUTES) SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            if(SPAN_SECONDS) SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        updateCountdown();
+        intervalId = setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+        });
+    </script>
+</body>
+</html>
