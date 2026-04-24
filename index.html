@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?xml version="1.0" encoding="UTF-8"?>
 
     <!-- Titulo -->
     <title>XV de Maricela</title>
@@ -12,14 +11,14 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- Favicon -->
-    <!-- <link rel="icon" href="./assets/img/crown_icon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="./assets/img/flower_favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <p class="frase">"A todos los seres más queridos que forman parte de mi vida, quiero que celebren conmigo mis 15 años, porque su precencia siempre será mi mejor regalo."
         </p>
 
-        <img class="queen-crown" src="./assets/img/queen-crown.png">
+        <img class="queen-crown" src="./assets/img/queen-crown.png" alt="Crown image">
         <h1>MIS XV AÑOS</h1>
 
         <h2>Maricela Marín Amadí</h2>
@@ -44,28 +43,34 @@
             </div>
         </div>
 
-        <h4 style="margin-top: 21.28px;">21:00 - 05:00</h4>
+        <h4 class="horario">21:00 - 05:00</h4>
     </header>
 
     <main>
         <!-- Contador regresivo -->
         <section id="contador-regresivo">
             <h3>FALTAN</h3>
-            <i class="fi fi-ts-marker"></i>
-            <table>
-                <tr>
-                <td><span id="days"></span></td>
-                <td><span id="hours"></span></td>
-                <td><span id="minutes"></span></td>
-                <td><span id="seconds"></span></td>
-                </tr>
-                <tr>
-                <th id="dias">Días</th>
-                <th id="horas">Horas</th>
-                <th id="minutos">Min</th>
-                <th id="segundos">Seg</th>
-                </tr>
-            </table>
+            <div class="contador-regresivo-container">
+                <div class="contador-bloque">
+                    <span id="days" class="contador-numero"></span>
+                    <span id="dias" class="contador-label">Días</span>
+                </div>
+                
+                <div class="contador-bloque">
+                    <span id="hours" class="contador-numero"></span>
+                    <span id="horas" class="contador-label">Horas</span>
+                </div>
+                
+                <div class="contador-bloque">
+                    <span id="minutes" class="contador-numero"></span>
+                    <span id="minutos" class="contador-label">Min</span>
+                </div>
+                
+                <div class="contador-bloque">
+                    <span id="seconds" class="contador-numero"></span>
+                    <span id="segundos" class="contador-label">Seg</span>
+                </div>
+            </div>
         </section>
 
         <section id="detalles">
@@ -85,7 +90,7 @@
                     <img class="vestimenta" src="./assets/img/suit_icon.png" alt="suit-img">
                     <img class="vestimenta" src="./assets/img/dress_icon.png" alt="dress-img">
                 </div>
-                <p style="color: #8B0000; font-weight: bolder;">*Evitar colores rojos o bordos.</p>
+                <p class="aclaracion">*Evitar colores rojos o bordos.</p>
             </div>
 
             <div class="confirmacion-container">
@@ -98,20 +103,20 @@
                 <img class="iconos" src="./assets/img/gift_icon.png" alt="gift-img">
                 <h3>SUGERENCIA DE REGALOS</h3>
                 <p style="margin-bottom: 2.5%;">Tu compañia en este día tan especial es el mejor regalo. Pero si deseas darme un obsequio, aquí podes hacerlo:</p>
-                <h3 style="margin-top: 0; color:#d13939"; font-weight: bolder;">TRANSFERENCIA</h3>
+                <h3 class="transferencia">TRANSFERENCIA</h3>
                 <h3>maarinn</h3>
             </div>
 
             <div class="agradecimientos">
                 <h5>ESPERAMOS CONTAR CON TU PRESENCIA</h5>
 
-                <h2 style="color: #8B0000; background-color: rgb(255, 255, 255, 0.5);">¡Muchas gracias!</h2>
+                <h2 class="agradecimiento">¡Muchas gracias!</h2>
             </div>
         </section>
     </main>
         
     <footer>
-        <p style="font-size: smaller;">Made by Luca Areco © 2026</p>
+        <p class="copyright">Made by Luca Areco © 2026</p>
     </footer>
 
     <script>

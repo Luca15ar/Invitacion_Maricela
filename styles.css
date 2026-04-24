@@ -38,6 +38,17 @@ p
     font-weight: bold;
 }
 
+.aclaracion
+{
+    color: #8B0000; 
+    font-weight: bolder;
+}
+
+.copyright
+{
+    font-size: smaller;
+}
+
 h1
 {
     display: flex;
@@ -57,6 +68,12 @@ h2
     color: #D4AF37;
 }
 
+.agradecimiento
+{
+    color: #8B0000; 
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
 h3
 {
     color: #8B0000;
@@ -64,9 +81,21 @@ h3
     font-size: larger;
 }
 
+.transferencia
+{
+    margin-top: 0;
+    color:#d13939;
+    font-weight: bolder;
+}
+
 h4
 {
     margin-top: 0;
+}
+
+.horario
+{
+    margin-top: 21.28px;
 }
 
 h5
@@ -158,20 +187,10 @@ header
     justify-content: center;
     margin-top: 10%;
     margin-bottom: 10%;
+    gap: 5%;
 }
 
-td 
-{
-    border-style: solid;
-    border-color: #cccccc;
-    border-width: 0px;
-    color: #8B0000;
-    padding: 0px;
-    font-size: 39px;
-    font-family: 'Mrs Saint Delafield';
-    text-align: center;
-}
-
+/* -- Detalles del evento --*/
 #detalles
 {
     display: flex;
@@ -185,26 +204,43 @@ td
     color: black;
 }
 
-#dias, #horas, #minutos
+/* -- Contador regresivo --*/
+.contador-regresivo-container
 {
-    color: #8B0000;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
 }
 
-#seconds, #segundos
+.contador-bloque
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contador-numero
+{
+    color: #8B0000;
+    font-size: 39px;
+    line-height: 1;
+}
+
+.contador-label 
+{
+    color: #8B0000;
+    font-size: 17px;
+    font-family: 'Playfair Display';
+    margin-top: 5px;
+}
+
+#seconds, #segundos 
 {
     color: #d13939;
 }
 
-th 
-{
-    border-width: 0px;
-    text-align: center;
-    padding-right: 15px;
-    padding-left: 15px;
-    font-size: 17px;
-    font-family: 'Playfair Display';
-}
-
+/* -- Ubicación del evento -- */
 .iconos
 {
     width: 12.5%;
@@ -219,6 +255,7 @@ th
     margin-bottom: 10%;
 }
 
+/* -- Vestimenta del evento -- */
 .vestimenta-container
 {
     display: flex;
@@ -240,6 +277,7 @@ th
     width: 20%;
 }
 
+/* -- Confirmación de asistencia -- */
 .confirmacion-container
 {
     display: flex;
@@ -249,6 +287,7 @@ th
     margin-bottom: 10%;
 }
 
+/* -- Sugerencia de regalos -- */
 .regalos-container
 {
     display: flex;
@@ -259,7 +298,7 @@ th
     width: 75%;
 }
 
-/* Botones */
+/* -- Botones -- */
 #ubicacion, #confirmacion
 {
     background-color: #d13939;
@@ -270,6 +309,7 @@ th
     cursor: pointer;
 }
 
+/* -- Reproductor de música -- */
 .music-player-btn-container
 {
     display: flex;
@@ -288,4 +328,28 @@ th
 {
     width: 12%;
     cursor: pointer;
+}
+
+/* -- Media query -- */
+@media (min-width: 768px) 
+{
+    body 
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url("./assets/img/background_h.jpg");
+        background-size: fill;
+    }
+
+    header, main, footer 
+    {
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .frase 
+    {
+        margin-top: 15%; 
+    }
 }
